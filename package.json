@@ -3,6 +3,7 @@
   "type": "module",
   "dependencies": {
     "chalk": "^5.1.2",
+    "termination": "^1.0.3",
     "traceroute": "^1.0.0"
   }
 }

@@ -5,6 +5,82 @@
 
 import traceroute from 'traceroute';
 import chalk from 'chalk';
+import { Animation } from 'termination';
+
+const swordFrames = [
+	`                  ___________
+                 |.---------.|
+            @)___||_        ||_______
+  {8*8888*888{______}       ||_______>
+            @)   ||_________||
+                 '----)-(----'
+                ____[=== o]___
+               |::::::::::::::|
+                -============--()`,
+	`                  ___________
+                 |.---------.|
+            @)___||_reading ||_______
+  {8*8888*888{______}       ||_______>
+            @)   ||_________||
+                 '----)-(----'
+                ____[=== o]___
+               |::::::::::::::|
+                -============--()`,
+	`                  ___________
+                 |.---------.|
+            @)___||_reading ||_______
+  {8*8888*888{______} the   ||_______>
+            @)   ||_________||
+                 '----)-(----'
+                ____[=== o]___
+               |::::::::::::::|
+                -============--()`,
+	`                  ___________
+                 |.---------.|
+            @)___||_reading ||_______
+  {8*8888*888{______} the   ||_______>
+            @)   ||__bits___||
+                 '----)-(----'
+                ____[=== o]___
+               |::::::::::::::|
+                -============--()`,
+]
+const animation = new Animation({
+    fps: 30,
+    maxSize: {
+        width: 80,
+        height: 10,
+    }
+});
+const sword = animation.add({
+    x: 0,
+    y: 0,
+    content: swordFrames[0],
+    replaceSpace: true,
+    color: 'white'
+});
+const swordFramesTransition = sword.transition([
+    {
+        props: { content: swordFrames[0] },
+        duration: 500
+    },
+    {
+        props: { content: swordFrames[1] },
+        duration: 500
+    },
+    {
+        props: { content: swordFrames[2] },
+        duration: 500
+    },
+    {
+        props: { content: swordFrames[3] },
+        duration: 500
+    }
+], { loop: true, loopInterval: 500 });
+
+animation.start();
+
+swordFramesTransition.run();
 
 traceroute.trace('google.com', function (err, hops) {
 	if (! err) {
@@ -14,6 +90,8 @@ traceroute.trace('google.com', function (err, hops) {
 			values.push(Math.floor(hop[key]));
 		  });
 		});
+		animation.end();
+		console.clear();
 		withASCII(values);
 	}
 });
