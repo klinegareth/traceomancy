@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-// Traceomancy
-// Uses round trip times as basis for fortune telling
-
 import traceroute from 'traceroute';
 import chalk from 'chalk';
 import { Animation } from 'termination';
@@ -57,7 +54,6 @@ const sword = animation.add({
     y: 0,
     content: swordFrames[0],
     replaceSpace: true,
-    color: 'white'
 });
 const swordFramesTransition = sword.transition([
     {
@@ -110,5 +106,5 @@ const withASCII = (values) => {
 |_\_  |----|                 ${chalkyNums[1]}    	* 
 |  |/ |    |                   
 |  /_ |    |                   
-		`);
+		` + `\n The reading has been made. Use these numbers wisely.`);
 }
