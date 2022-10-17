@@ -1,6 +1,8 @@
 # traceomancy
 using traceroute as a basis for divination
 
+art from [joan stark's ascii art gallery](https://web.archive.org/web/20051220145423/http://www.geocities.com/spunk1111/index.htm#home)
+
 ## Installation
 
 ```bash
