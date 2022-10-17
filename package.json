@@ -1,0 +1,8 @@
+{
+  "name": "index",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.1.2",
+    "traceroute": "^1.0.0"
+  }
+}
